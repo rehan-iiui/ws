@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>World Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         APP HEADER
+    =============================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brandIcon">🌍</div>
+
+            <div class="brandText">
+                <h1>World Explorer</h1>
+                <p>Discover the world</p>
+            </div>
+        </div>
+
+        <div class="headerActions">
+
+            <button id="themeButton" class="iconButton" title="Toggle theme">
+                🌙
+            </button>
+
+            <button id="randomButton" class="randomButton">
+                🎲 Random Country
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         MAIN APP
+    =============================== -->
+
+    <main class="mainContent">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="heroContent">
+
+                <div class="heroBadge">
+                    🌎 EXPLORE THE WORLD
+                </div>
+
+                <h2>
+                    Discover countries,<br>
+                    <span>cultures & places.</span>
+                </h2>
+
+                <p>
+                    Explore countries around the world,
+                    discover their capitals, currencies,
+                    languages, populations and fascinating facts.
+                </p>
+
+                <div class="searchBox">
+
+                    <span>🔎</span>
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="Search country, capital or currency..."
+                        autocomplete="off"
+                    >
+
+                    <button id="clearSearch" class="clearSearch">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="heroGlobe">
+                🌎
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             QUICK STATS
+        =============================== -->
+
+        <section class="quickStats">
+
+            <div class="statCard">
+                <div class="statIcon">🌍</div>
+                <div>
+                    <strong id="countryCount">0</strong>
+                    <span>Countries</span>
+                </div>
+            </div>
+
+            <div class="statCard">
+                <div class="statIcon">🌎</div>
+                <div>
+                    <strong id="continentCount">7</strong>
+                    <span>Continents</span>
+                </div>
+            </div>
+
+            <div class="statCard">
+                <div class="statIcon">⭐</div>
+                <div>
+                    <strong id="favoriteCount">0</strong>
+                    <span>Favorites</span>
+                </div>
+            </div>
+
+            <div class="statCard">
+                <div class="statIcon">🕘</div>
+                <div>
+                    <strong id="recentCount">0</strong>
+                    <span>Recently Viewed</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             NAVIGATION TABS
+        =============================== -->
+
+        <section class="navigationArea">
+
+            <div class="sectionTitle">
+                <div>
+                    <h2>Explore</h2>
+                    <p>Choose how you want to explore the world.</p>
+                </div>
+            </div>
+
+            <div class="exploreTabs">
+
+                <button
+                    class="exploreTab active"
+                    data-view="countries"
+                >
+                    🌍 Countries
+                </button>
+
+                <button
+                    class="exploreTab"
+                    data-view="favorites"
+                >
+                    ⭐ Favorites
+                </button>
+
+                <button
+                    class="exploreTab"
+                    data-view="recent"
+                >
+                    🕘 Recently Viewed
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             FILTERS
+        =============================== -->
+
+        <section class="filtersArea">
+
+            <div class="filterHeader">
+
+                <div>
+                    <h2 id="viewTitle">Explore Countries</h2>
+                    <p id="resultText">
+                        Showing all countries
+                    </p>
+                </div>
+
+                <div class="sortArea">
+
+                    <label for="sortSelect">
+                        Sort
+                    </label>
+
+                    <select id="sortSelect">
+
+                        <option value="name">
+                            Name A–Z
+                        </option>
+
+                        <option value="nameDesc">
+                            Name Z–A
+                        </option>
+
+                        <option value="population">
+                            Population
+                        </option>
+
+                        <option value="area">
+                            Area
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTINENTS -->
+
+            <div class="continentFilters">
+
+                <button
+                    class="continentButton active"
+                    data-continent="All"
+                >
+                    🌍 All
+                </button>
+
+                <button
+                    class="continentButton"
+                    data-continent="Asia"
+                >
+                    🌏 Asia
+                </button>
+
+                <button
+                    class="continentButton"
+                    data-continent="Europe"
+                >
+                    🇪🇺 Europe
+                </button>
+
+                <button
+                    class="continentButton"
+                    data-continent="Africa"
+                >
+                    🌍 Africa
+                </button>
+
+                <button
+                    class="continentButton"
+                    data-continent="North America"
+                >
+                    🌎 North America
+                </button>
+
+                <button
+                    class="continentButton"
+                    data-continent="South America"
+                >
+                    🌎 South America
+                </button>
+
+                <button
+                    class="continentButton"
+                    data-continent="Oceania"
+                >
+                    🌊 Oceania
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             COUNTRY GRID
+        =============================== -->
+
+        <section>
+
+            <div
+                id="countryGrid"
+                class="countryGrid"
+            ></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==============================
+         COUNTRY DETAIL MODAL
+    =============================== -->
+
+    <div
+        id="countryModal"
+        class="modal hidden"
+    >
+
+        <div class="modalCard">
+
+            <button
+                id="closeModal"
+                class="closeButton"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <!-- COUNTRY HEADER -->
+
+            <div class="countryDetailHeader">
+
+                <div
+                    id="modalFlag"
+                    class="modalFlag"
+                >
+                    🇵🇰
+                </div>
+
+                <div>
+
+                    <h2 id="modalName">
+                        Pakistan
+                    </h2>
+
+                    <p id="modalOfficialName">
+                        Islamic Republic of Pakistan
+                    </p>
+
+                </div>
+
+                <button
+                    id="modalFavorite"
+                    class="favoriteButton"
+                >
+                    ☆
+                </button>
+
+            </div>
+
+
+            <!-- BASIC INFORMATION -->
+
+            <div class="detailSection">
+
+                <h3>Basic Information</h3>
+
+                <div class="infoGrid">
+
+                    <div class="infoBox">
+                        <span>🏙️</span>
+                        <small>Capital</small>
+                        <strong id="modalCapital">-</strong>
+                    </div>
+
+                    <div class="infoBox">
+                        <span>👥</span>
+                        <small>Population</small>
+                        <strong id="modalPopulation">-</strong>
+                    </div>
+
+                    <div class="infoBox">
+                        <span>💰</span>
+                        <small>Currency</small>
+                        <strong id="modalCurrency">-</strong>
+                    </div>
+
+                    <div class="infoBox">
+                        <span>🗣️</span>
+                        <small>Language</small>
+                        <strong id="modalLanguage">-</strong>
+                    </div>
+
+                    <div class="infoBox">
+                        <span>🌍</span>
+                        <small>Continent</small>
+                        <strong id="modalContinent">-</strong>
+                    </div>
+
+                    <div class="infoBox">
+                        <span>📐</span>
+                        <small>Area</small>
+                        <strong id="modalArea">-</strong>
+                    </div>
+
+                    <div class="infoBox">
+                        <span>🕐</span>
+                        <small>Time Zone</small>
+                        <strong id="modalTimezone">-</strong>
+                    </div>
+
+                    <div class="infoBox">
+                        <span>📞</span>
+                        <small>Calling Code</small>
+                        <strong id="modalCallingCode">-</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GEOGRAPHY -->
+
+            <div class="detailSection">
+
+                <h3>Geography</h3>
+
+                <div class="geographyGrid">
+
+                    <div>
+                        <span>📍</span>
+                        <strong>Region</strong>
+                        <p id="modalRegion">-</p>
+                    </div>
+
+                    <div>
+                        <span>🧭</span>
+                        <strong>Subregion</strong>
+                        <p id="modalSubregion">-</p>
+                    </div>
+
+                    <div>
+                        <span>🏳️</span>
+                        <strong>Neighbors</strong>
+                        <p id="modalNeighbors">-</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FUN FACTS -->
+
+            <div class="detailSection">
+
+                <h3>Interesting Facts</h3>
+
+                <div
+                    id="modalFacts"
+                    class="factsList"
+                ></div>
+
+            </div>
+
+
+            <!-- LANDMARKS -->
+
+            <div class="detailSection">
+
+                <h3>Famous Places</h3>
+
+                <div
+                    id="modalLandmarks"
+                    class="landmarkList"
+                ></div>
+
+            </div>
+
+
+            <!-- MAP -->
+
+            <div class="detailSection">
+
+                <h3>Location</h3>
+
+                <div
+                    id="countryMap"
+                    class="countryMap"
+                >
+
+                    <div class="mapPlaceholder">
+                        <span>📍</span>
+                        <strong id="mapCountryName">
+                            Country
+                        </strong>
+                        <small>
+                            Explore this country's location
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MODAL ACTIONS -->
+
+            <div class="modalActions">
+
+                <button
+                    id="modalRandom"
+                    class="secondaryButton"
+                >
+                    🎲 Random Country
+                </button>
+
+                <button
+                    id="modalCloseBottom"
+                    class="primaryButton"
+                >
+                    Done
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         RANDOM COUNTRY PANEL
+    =============================== -->
+
+    <div
+        id="randomPanel"
+        class="randomPanel hidden"
+    >
+
+        <div class="randomPanelCard">
+
+            <button
+                id="closeRandom"
+                class="closeButton"
+            >
+                ×
+            </button>
+
+            <span class="randomLabel">
+                RANDOM DISCOVERY
+            </span>
+
+            <div id="randomFlag">
+                🌍
+            </div>
+
+            <h2 id="randomName">
+                Country
+            </h2>
+
+            <p id="randomDescription">
+                Discover somewhere new.
+            </p>
+
+            <button
+                id="exploreRandom"
+                class="primaryButton"
+            >
+                Explore Country
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         NO RESULTS
+    =============================== -->
+
+    <template id="noResultsTemplate">
+
+        <div class="noResults">
+
+            <div class="noResultsIcon">
+                🌍
+            </div>
+
+            <h3>No countries found</h3>
+
+            <p>
+                Try another country, capital or currency.
+            </p>
+
+        </div>
+
+    </template>
+
+
+    <!-- ==============================
+         SCRIPT
+    =============================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
+
+This is the **full `index.html`**, not an add-on. Next, we'll make the complete `style.css` to match this exact HTML.
