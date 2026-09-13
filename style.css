@@ -1,0 +1,1091 @@
+Here is the **complete `style.css`** matching your current `index.html`. Replace the entire CSS file with this:
+
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+    min-height: 100vh;
+    transition: background 0.25s, color 0.25s;
+}
+
+body.dark {
+    background: #101722;
+    color: #f2f5fa;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(41, 111, 196, 0.25);
+    outline-offset: 2px;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.topbar {
+    height: 78px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5eaf1;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.dark .topbar {
+    background: #151e2b;
+    border-color: #263243;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brandIcon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: #e8f1ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.brandText h1 {
+    font-size: 20px;
+    line-height: 1.1;
+}
+
+.brandText p {
+    color: #7b8799;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.dark .brandText p {
+    color: #9ca9ba;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.iconButton {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #e1e6ee;
+    background: #ffffff;
+    border-radius: 11px;
+    font-size: 18px;
+}
+
+.dark .iconButton {
+    background: #1c2735;
+    border-color: #334153;
+}
+
+.randomButton {
+    border: none;
+    background: #172033;
+    color: white;
+    padding: 11px 17px;
+    border-radius: 11px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.randomButton:hover {
+    transform: translateY(-2px);
+}
+
+/* ==============================
+   MAIN
+============================== */
+
+.mainContent {
+    width: min(1250px, calc(100% - 40px));
+    margin: auto;
+    padding: 35px 0 70px;
+}
+
+/* ==============================
+   HERO
+============================== */
+
+.hero {
+    min-height: 320px;
+    border-radius: 25px;
+    padding: 48px;
+    color: white;
+    background: linear-gradient(135deg, #173b73, #2868bd);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(29, 76, 137, 0.16);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 690px;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.hero h2 {
+    font-size: clamp(34px, 5vw, 48px);
+    line-height: 1.08;
+    margin-bottom: 15px;
+}
+
+.hero h2 span {
+    color: #a9d2ff;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #dceaff;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.heroGlobe {
+    font-size: 165px;
+    opacity: 0.22;
+    transform: rotate(-10deg);
+    margin-right: 25px;
+    user-select: none;
+}
+
+/* ==============================
+   SEARCH
+============================== */
+
+.searchBox {
+    width: min(560px, 100%);
+    height: 55px;
+    background: white;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 10px;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+}
+
+.searchBox > span {
+    font-size: 18px;
+    color: #68758a;
+}
+
+.searchBox input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    color: #172033;
+    background: transparent;
+}
+
+.clearSearch {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #edf1f6;
+    color: #667286;
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clearSearch:hover {
+    background: #dfe5ed;
+}
+
+/* ==============================
+   QUICK STATS
+============================== */
+
+.quickStats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.statCard {
+    background: white;
+    border: 1px solid #e6ebf1;
+    border-radius: 16px;
+    padding: 17px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.dark .statCard {
+    background: #151e2b;
+    border-color: #293547;
+}
+
+.statIcon {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    background: #eef4fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.statCard strong {
+    display: block;
+    font-size: 19px;
+}
+
+.statCard span {
+    display: block;
+    color: #8792a3;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+/* ==============================
+   SECTION HEADERS
+============================== */
+
+.navigationArea,
+.filtersArea {
+    margin-top: 36px;
+}
+
+.sectionTitle h2,
+.filterHeader h2 {
+    font-size: 24px;
+}
+
+.sectionTitle p,
+.filterHeader p {
+    color: #7d8899;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.dark .sectionTitle p,
+.dark .filterHeader p {
+    color: #9aa7b8;
+}
+
+/* ==============================
+   EXPLORE TABS
+============================== */
+
+.exploreTabs {
+    display: flex;
+    gap: 9px;
+    margin-top: 19px;
+    flex-wrap: wrap;
+}
+
+.exploreTab {
+    border: 1px solid #dfe5ed;
+    background: white;
+    color: #566276;
+    border-radius: 11px;
+    padding: 11px 17px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.dark .exploreTab {
+    background: #151e2b;
+    border-color: #303d50;
+    color: #aeb9c8;
+}
+
+.exploreTab:hover {
+    transform: translateY(-1px);
+}
+
+.exploreTab.active {
+    background: #1e5da8;
+    border-color: #1e5da8;
+    color: white;
+}
+
+/* ==============================
+   FILTERS
+============================== */
+
+.filterHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.sortArea {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.sortArea label {
+    color: #7d8899;
+    font-size: 13px;
+}
+
+.sortArea select {
+    border: 1px solid #dce2ea;
+    background: white;
+    color: #39465a;
+    border-radius: 9px;
+    padding: 9px 12px;
+    outline: none;
+}
+
+.dark .sortArea select {
+    background: #151e2b;
+    border-color: #303d50;
+    color: #e5eaf1;
+}
+
+.continentFilters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.continentButton {
+    border: 1px solid #dfe5ed;
+    background: white;
+    color: #596579;
+    padding: 9px 14px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.dark .continentButton {
+    background: #151e2b;
+    border-color: #303d50;
+    color: #aeb9c8;
+}
+
+.continentButton:hover {
+    border-color: #75a7df;
+}
+
+.continentButton.active {
+    background: #1e5da8;
+    border-color: #1e5da8;
+    color: white;
+}
+
+/* ==============================
+   COUNTRY GRID
+============================== */
+
+.countryGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.countryCard {
+    background: white;
+    border: 1px solid #e5eaf1;
+    border-radius: 17px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.dark .countryCard {
+    background: #151e2b;
+    border-color: #293547;
+}
+
+.countryCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(35, 65, 105, 0.1);
+    border-color: #c9d8ea;
+}
+
+.cardTop {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.flag {
+    width: 65px;
+    height: 48px;
+    border-radius: 9px;
+    background: #f0f3f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    flex-shrink: 0;
+}
+
+.countryName {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.countryRegion {
+    color: #8792a3;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.cardInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.miniInfo {
+    background: #f7f9fc;
+    border-radius: 10px;
+    padding: 11px;
+}
+
+.dark .miniInfo {
+    background: #1c2735;
+}
+
+.miniInfo span {
+    display: block;
+    color: #8994a5;
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.miniInfo strong {
+    display: block;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ==============================
+   NO RESULTS
+============================== */
+
+.noResults {
+    grid-column: 1 / -1;
+    background: white;
+    border: 1px solid #e5eaf1;
+    border-radius: 17px;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.dark .noResults {
+    background: #151e2b;
+    border-color: #293547;
+}
+
+.noResultsIcon {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.noResults h3 {
+    font-size: 19px;
+}
+
+.noResults p {
+    color: #8994a5;
+    margin-top: 7px;
+}
+
+/* ==============================
+   MODAL
+============================== */
+
+.modal,
+.randomPanel {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 16, 29, 0.67);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modalCard {
+    width: min(720px, 100%);
+    max-height: 92vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 23px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+.dark .modalCard {
+    background: #151e2b;
+    color: #f1f4f8;
+}
+
+.closeButton {
+    position: absolute;
+    right: 17px;
+    top: 15px;
+    width: 37px;
+    height: 37px;
+    border: none;
+    border-radius: 50%;
+    background: #eef1f5;
+    color: #596579;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.dark .closeButton {
+    background: #263243;
+    color: #d9e0ea;
+}
+
+.countryDetailHeader {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 17px;
+    padding-right: 40px;
+    margin-bottom: 30px;
+}
+
+.modalFlag {
+    width: 80px;
+    height: 65px;
+    background: #f1f4f8;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+.countryDetailHeader h2 {
+    font-size: 29px;
+}
+
+.countryDetailHeader p {
+    color: #7f8a9b;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.favoriteButton {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #dfe5ed;
+    background: white;
+    border-radius: 12px;
+    font-size: 27px;
+    color: #f0a928;
+}
+
+.dark .favoriteButton {
+    background: #1c2735;
+    border-color: #303d50;
+}
+
+.detailSection {
+    margin-top: 27px;
+}
+
+.detailSection h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+}
+
+.infoBox {
+    background: #f7f9fc;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.dark .infoBox {
+    background: #1c2735;
+}
+
+.infoBox > span {
+    font-size: 20px;
+}
+
+.infoBox small {
+    display: block;
+    color: #8994a5;
+    margin: 7px 0 4px;
+    font-size: 11px;
+}
+
+.infoBox strong {
+    font-size: 14px;
+}
+
+.geographyGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 11px;
+}
+
+.geographyGrid > div {
+    background: #f7f9fc;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.dark .geographyGrid > div {
+    background: #1c2735;
+}
+
+.geographyGrid span {
+    display: block;
+    font-size: 21px;
+    margin-bottom: 9px;
+}
+
+.geographyGrid strong {
+    font-size: 12px;
+}
+
+.geographyGrid p {
+    color: #7e899a;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* ==============================
+   FACTS
+============================== */
+
+.factsList {
+    display: grid;
+    gap: 9px;
+}
+
+.factItem {
+    padding: 13px 15px;
+    background: #f7f9fc;
+    border-radius: 11px;
+    color: #536074;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.dark .factItem {
+    background: #1c2735;
+    color: #b6c0ce;
+}
+
+/* ==============================
+   LANDMARKS
+============================== */
+
+.landmarkList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.landmarkItem {
+    background: #f7f9fc;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.dark .landmarkItem {
+    background: #1c2735;
+}
+
+.landmarkItem strong {
+    display: block;
+    font-size: 14px;
+}
+
+.landmarkItem span {
+    display: block;
+    color: #8792a3;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* ==============================
+   MAP
+============================== */
+
+.countryMap {
+    min-height: 170px;
+    border-radius: 16px;
+    background:
+        linear-gradient(45deg, rgba(255,255,255,.45) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,.45) 25%, transparent 25%),
+        #dfeef1;
+    background-size: 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mapPlaceholder {
+    text-align: center;
+    background: rgba(255,255,255,0.9);
+    padding: 18px 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.mapPlaceholder span {
+    display: block;
+    font-size: 30px;
+}
+
+.mapPlaceholder strong {
+    display: block;
+    margin-top: 5px;
+}
+
+.mapPlaceholder small {
+    display: block;
+    color: #7f8a9a;
+    margin-top: 4px;
+}
+
+/* ==============================
+   MODAL BUTTONS
+============================== */
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.primaryButton,
+.secondaryButton {
+    border: none;
+    border-radius: 10px;
+    padding: 11px 17px;
+    font-weight: 600;
+}
+
+.primaryButton {
+    background: #1e5da8;
+    color: white;
+}
+
+.secondaryButton {
+    background: #edf2f7;
+    color: #46536a;
+}
+
+.dark .secondaryButton {
+    background: #263243;
+    color: #d9e0ea;
+}
+
+/* ==============================
+   RANDOM PANEL
+============================== */
+
+.randomPanelCard {
+    width: min(420px, 100%);
+    background: white;
+    border-radius: 22px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.dark .randomPanelCard {
+    background: #151e2b;
+    color: #f1f4f8;
+}
+
+.randomLabel {
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    font-weight: 700;
+    color: #1e5da8;
+}
+
+#randomFlag {
+    font-size: 90px;
+    margin: 18px 0 10px;
+}
+
+#randomName {
+    font-size: 30px;
+}
+
+#randomDescription {
+    color: #7d8899;
+    line-height: 1.5;
+    margin: 9px 0 22px;
+}
+
+/* ==============================
+   DARK MODE
+============================== */
+
+.dark .countryDetailHeader p {
+    color: #9aa7b8;
+}
+
+.dark .sortArea label {
+    color: #9aa7b8;
+}
+
+/* ==============================
+   SCROLLBAR
+============================== */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c8d0dc;
+    border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #3b495c;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 1000px) {
+
+    .quickStats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .heroGlobe {
+        font-size: 125px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .topbar {
+        height: auto;
+        min-height: 72px;
+        padding: 12px 18px;
+        gap: 10px;
+    }
+
+    .headerActions {
+        gap: 6px;
+    }
+
+    .randomButton {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .mainContent {
+        width: min(100% - 24px, 1250px);
+        padding-top: 20px;
+    }
+
+    .hero {
+        padding: 30px 23px;
+        min-height: 330px;
+    }
+
+    .heroGlobe {
+        display: none;
+    }
+
+    .filterHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .countryGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .geographyGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .landmarkList {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .brandText h1 {
+        font-size: 17px;
+    }
+
+    .brandText p {
+        font-size: 10px;
+    }
+
+    .brandIcon {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .iconButton {
+        width: 38px;
+        height: 38px;
+    }
+
+    .randomButton {
+        font-size: 0;
+        width: 40px;
+        height: 38px;
+        padding: 0;
+    }
+
+    .randomButton::first-letter {
+        font-size: 17px;
+    }
+
+    .hero {
+        border-radius: 19px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .quickStats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .statCard {
+        padding: 12px;
+    }
+
+    .statIcon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .exploreTabs,
+    .continentFilters {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 5px;
+    }
+
+    .exploreTab,
+    .continentButton {
+        white-space: nowrap;
+    }
+
+    .infoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .countryDetailHeader {
+        grid-template-columns: auto 1fr;
+    }
+
+    .favoriteButton {
+        grid-column: 1 / -1;
+    }
+
+    .modalCard {
+        padding: 24px 18px;
+    }
+
+    .modalActions {
+        flex-direction: column;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+    }
+}
+```
